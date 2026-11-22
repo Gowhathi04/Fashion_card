@@ -1,15 +1,30 @@
-import React from 'react';
-import "./Child.css"
+import "./Child.css";
 
-
-const Child = ({ image, title, cost }) => {
+const Child = ({ product, isWishlisted, onAddToCart, onToggleWishlist }) => {
   return (
-    <div className='main'>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>₹{cost}</p>
-      <button>Order now</button>
-    </div>
+    <article className="product-card">
+      <div className="product-image-wrap">
+        <img src={product.image} alt={product.title} />
+        <span className="category-tag">{product.category}</span>
+        <button
+          type="button"
+          className={`heart-button ${isWishlisted ? "selected" : ""}`}
+          aria-label={`${isWishlisted ? "Remove" : "Add"} ${product.title} ${isWishlisted ? "from" : "to"} wishlist`}
+          onClick={() => onToggleWishlist(product.id)}
+        >
+          {isWishlisted ? "\u2665" : "\u2661"}
+        </button>
+      </div>
+      <div className="product-details">
+        <div>
+          <h3>{product.title}</h3>
+          <p>₹{product.cost}</p>
+        </div>
+        <button type="button" className="add-button" onClick={() => onAddToCart(product)}>
+          Add to Cart
+        </button>
+      </div>
+    </article>
   );
 };
 

@@ -1,34 +1,107 @@
-.main {
-  width: 300px;
-  flex-shrink: 0;
-  border: 2px solid brown;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 10px;
-  background-color: beige;
-  text-align: center;
+.product-card {
+  min-width: 0;
+  background: #101b2b;
+  border: 1px solid #172a48;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.main img {
-  width: 250px;
-  height: 250px;
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(201, 243, 29, 0.10);
+}
+
+.product-image-wrap {
+  position: relative;
+  height: 330px;
+  background: #0b1c38;
+  overflow: hidden;
+}
+
+.product-image-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
-  border-radius: 20px;
+  transition: transform 350ms ease;
 }
-.main p{
-    color: peru;
-    font-weight: bold;
-}
-.main h3{
-    color: darkred;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.main button{
-    padding: 5px;
-    background-color: burlywood;
-    color: brown;
-    font-weight: bold;
-    border: 0;
-    border-radius: 5px;
 
+.product-card:hover .product-image-wrap img {
+  transform: scale(1.035);
+}
+
+.category-tag {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(201, 243, 29, 0.96);
+  color: #090b0d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.heart-button {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(9, 11, 13, 0.88);
+  color: #f7f8f2;
+  font-size: 1.65rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.heart-button:hover,
+.heart-button.selected {
+  color: #c9f31d;
+  transform: scale(1.06);
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+}
+
+.product-details h3 {
+  margin: 0 0 5px;
+  color: #f7f8f2;
+  font-size: 1.05rem;
+}
+
+.product-details p {
+  margin: 0;
+  color: #c9f31d;
+  font-weight: 800;
+  font-size: 1.08rem;
+}
+
+.add-button {
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  background: #c9f31d;
+  color: #090b0d;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.add-button:hover {
+  background: #daf54d;
+  transform: translateY(-2px);
 }
